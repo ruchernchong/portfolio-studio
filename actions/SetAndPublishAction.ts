@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react'
 import {useDocumentOperation} from 'sanity'
 
 export const SetAndPublishAction = (props) => {
-  console.log(props)
   const {patch, publish} = useDocumentOperation(props.id, props.type)
   const [isPublishing, setIsPublishing] = useState(false)
 
@@ -15,6 +14,7 @@ export const SetAndPublishAction = (props) => {
   }, [isPublishing, props.draft])
 
   return {
+    disabled: publish.disabled,
     label: 'Publish',
     onHandle: () => {
       // This will update the button text
@@ -22,7 +22,10 @@ export const SetAndPublishAction = (props) => {
 
       // Set publishedAt to current date and time
       patch.execute(
-        [{set: {excerpt: props.draft.content.substring(0, 255), date: new Date().toISOString()}}],
+        [
+          {setIfMissing: {date: new Date().toISOString()}},
+          {setIfMissing: {excerpt: props.draft.content.substring(0, 255)}},
+        ],
         {}
       )
 
