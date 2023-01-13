@@ -1,8 +1,8 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
+import { markdownSchema } from "sanity-plugin-markdown";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemas";
-import { markdownSchema } from "sanity-plugin-markdown";
 import { SetAndPublishAction } from "./actions/SetAndPublishAction";
 
 export default defineConfig({
