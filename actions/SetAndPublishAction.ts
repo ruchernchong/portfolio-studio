@@ -27,7 +27,7 @@ export const SetAndPublishAction = (props) => {
             set: {
               slug: {
                 _type: "slug",
-                current: draft.title?.replaceAll(/s+/, "-").toLowerCase(),
+                current: draft.title?.replace(/\s+/g, "-").toLowerCase(),
               },
             },
           },
