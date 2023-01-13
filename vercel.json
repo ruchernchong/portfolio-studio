@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" },{
-    "source": "/studio/",
-    "destination": "https://studio.ruchern.xyz"
-  }],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "github": {
     "silent": true
   }
