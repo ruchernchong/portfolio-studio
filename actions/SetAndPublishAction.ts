@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDocumentOperation } from "sanity";
 import { PublishIcon } from "@sanity/icons";
+import { postToDevCommunity } from "../utils/post-to-dev-community";
 
 export const SetAndPublishAction = (props) => {
-  const { id, type, draft, onComplete } = props;
+  const { id, type, draft, published, onComplete } = props;
 
   const { patch, publish } = useDocumentOperation(id, type);
   const [isPublishing, setIsPublishing] = useState(false);
@@ -38,6 +39,7 @@ export const SetAndPublishAction = (props) => {
       );
 
       publish.execute();
+      postToDevCommunity(published);
       onComplete();
     },
   };
