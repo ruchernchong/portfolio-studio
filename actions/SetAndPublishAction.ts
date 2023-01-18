@@ -33,7 +33,7 @@ export const SetAndPublishAction = (props) => {
             },
           },
           { setIfMissing: { date: new Date().toISOString() } },
-          { setIfMissing: { excerpt: draft.content?.substring(0, 255) } },
+          { set: { excerpt: draft.content?.substring(0, 255) } },
         ],
         {}
       );
