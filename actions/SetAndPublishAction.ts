@@ -39,7 +39,7 @@ export const SetAndPublishAction = (props) => {
       );
 
       publish.execute();
-      postToDevCommunity(published);
+      !published && postToDevCommunity(published);
       onComplete();
     },
   };
