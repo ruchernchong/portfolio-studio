@@ -1,46 +1,38 @@
-import { useEffect, useState } from "react";
 import { useDocumentOperation } from "sanity";
-import { PublishIcon } from "@sanity/icons";
 import { postToDevCommunity } from "../utils/post-to-dev-community";
 
-export const SetAndPublishAction = (props) => {
-  const { id, type, draft, published, onComplete } = props;
+export const CustomPublishAction = (originalPublishAction) => {
+  const SetAndPublishAction = (props) => {
+    const { id, type, draft, published } = props;
+    const originalResult = originalPublishAction(props);
 
-  const { patch, publish } = useDocumentOperation(id, type);
-  const [isPublishing, setIsPublishing] = useState(false);
+    const { patch } = useDocumentOperation(id, type);
 
-  useEffect(() => {
-    if (isPublishing && !draft) {
-      setIsPublishing(false);
-    }
-  }, [isPublishing, draft]);
+    published && postToDevCommunity(published);
 
-  return {
-    disabled: publish.disabled,
-    label: "Publish",
-    icon: PublishIcon,
-    onHandle: () => {
-      setIsPublishing(true);
-
-      patch.execute(
-        [
-          {
-            set: {
-              slug: {
-                _type: "slug",
-                current: draft.title?.replace(/\s+/g, "-").toLowerCase(),
+    return {
+      ...originalResult,
+      onHandle: () => {
+        patch.execute(
+          [
+            {
+              set: {
+                slug: {
+                  _type: "slug",
+                  current: draft.title?.replace(/\s+/g, "-").toLowerCase(),
+                },
               },
             },
-          },
-          { setIfMissing: { _createdAt: new Date().toISOString() } },
-          { set: { excerpt: draft.content?.substring(0, 255) } },
-        ],
-        {}
-      );
+            { setIfMissing: { _createdAt: new Date().toISOString() } },
+            { set: { excerpt: draft.content?.substring(0, 255) } },
+          ],
+          {}
+        );
 
-      publish.execute();
-      !published && postToDevCommunity(published);
-      onComplete();
-    },
+        originalResult.onHandle();
+      },
+    };
   };
+
+  return SetAndPublishAction;
 };
