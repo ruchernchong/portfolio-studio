@@ -8,7 +8,7 @@ export const CustomPublishAction = (originalPublishAction) => {
 
     const { patch } = useDocumentOperation(id, type);
 
-    published && postToDevCommunity(published);
+    // published && postToDevCommunity(published);
 
     return {
       ...originalResult,
