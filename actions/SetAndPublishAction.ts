@@ -23,7 +23,7 @@ export const CustomPublishAction = (originalPublishAction) => {
                 },
               },
             },
-            { setIfMissing: { _createdAt: new Date().toISOString() } },
+            { setIfMissing: { date: new Date().toISOString() } },
             { set: { excerpt: draft.content?.substring(0, 255) } },
           ],
           {}
