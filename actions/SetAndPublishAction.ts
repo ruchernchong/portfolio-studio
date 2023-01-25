@@ -3,12 +3,10 @@ import { postToDevCommunity } from "../utils/post-to-dev-community";
 
 export const CustomPublishAction = (originalPublishAction) => {
   const SetAndPublishAction = (props) => {
-    const { id, type, draft, published } = props;
+    const { id, type, draft } = props;
     const originalResult = originalPublishAction(props);
 
     const { patch } = useDocumentOperation(id, type);
-
-    // published && postToDevCommunity(published);
 
     return {
       ...originalResult,
