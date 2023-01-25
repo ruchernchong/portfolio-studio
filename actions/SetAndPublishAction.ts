@@ -1,5 +1,4 @@
 import { useDocumentOperation } from "sanity";
-import { postToDevCommunity } from "../utils/post-to-dev-community";
 
 export const CustomPublishAction = (originalPublishAction) => {
   const SetAndPublishAction = (props) => {
