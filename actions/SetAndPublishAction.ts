@@ -15,6 +15,7 @@ export const CustomPublishAction = (originalPublishAction) => {
       onHandle: () => {
         patch.execute(
           [
+            { setIfMissing: { excerpt: draft.content?.substring(0, 255) } },
             {
               set: {
                 slug: {
@@ -24,7 +25,6 @@ export const CustomPublishAction = (originalPublishAction) => {
               },
             },
             { setIfMissing: { date: new Date().toISOString() } },
-            { set: { excerpt: draft.content?.substring(0, 255) } },
           ],
           {}
         );
