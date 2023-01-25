@@ -9,10 +9,15 @@ export default {
       type: "string",
     },
     {
+      name: "excerpt",
+      title: "Excerpt",
+      type: "string",
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
-      hidden: true,
+      readOnly: true,
       options: {
         source: "title",
       },
@@ -22,12 +27,7 @@ export default {
       title: "Content",
       type: "markdown",
     },
-    {
-      name: "excerpt",
-      title: "Excerpt",
-      type: "string",
-      hidden: true,
-    },
+
     {
       name: "coverImage",
       title: "Cover Image",
