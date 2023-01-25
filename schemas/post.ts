@@ -39,4 +39,16 @@ export default {
       type: "datetime",
     },
   ],
+  orderings: [
+    {
+      title: "Published Date, Desc",
+      name: "publishedDateDesc",
+      by: [
+        {
+          field: "date",
+          direction: "desc",
+        },
+      ],
+    },
+  ],
 };
