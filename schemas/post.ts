@@ -24,8 +24,11 @@ export default {
     },
     {
       name: "content",
-      title: "Content",
+      title: "Body",
       type: "markdown",
+      options: {
+        imageUrl: (imageAsset) => imageAsset.url,
+      },
     },
 
     {
