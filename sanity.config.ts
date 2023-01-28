@@ -3,7 +3,7 @@ import { deskTool } from "sanity/desk";
 import { markdownSchema } from "sanity-plugin-markdown";
 import { schemaTypes } from "./schemas";
 import { CustomPublishAction } from "./actions/SetAndPublishAction";
-import { CustomMarkdownInput } from "./components/MarkdownInputCustomPreview";
+import CustomMarkdownInput from "./components/CustomMarkdownInput";
 
 export default defineConfig({
   name: "default",

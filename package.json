@@ -10,6 +10,8 @@
     "deploy": "sanity deploy"
   },
   "dependencies": {
+    "@types/dompurify": "^2.4.0",
+    "@types/marked": "^4.0.8",
     "dompurify": "^2.4.3",
     "easymde": "^2.18.0",
     "marked": "^4.2.12",
