@@ -37,18 +37,18 @@ export default {
       type: "image",
     },
     {
-      name: "date",
+      name: "publishedDate",
       title: "Date",
       type: "datetime",
     },
   ],
   orderings: [
     {
-      title: "Published Date, Desc",
+      title: "Published Date",
       name: "publishedDateDesc",
       by: [
         {
-          field: "date",
+          field: "publishedDate",
           direction: "desc",
         },
       ],

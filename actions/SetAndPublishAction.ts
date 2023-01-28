@@ -21,7 +21,7 @@ export const CustomPublishAction = (originalPublishAction) => {
                 },
               },
             },
-            { setIfMissing: { date: new Date().toISOString() } },
+            { setIfMissing: { publishedDate: new Date().toISOString() } },
           ],
           {}
         );
