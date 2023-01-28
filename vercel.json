@@ -3,5 +3,6 @@
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "github": {
     "silent": true
-  }
+  },
+  "regions": ["sin1"]
 }
