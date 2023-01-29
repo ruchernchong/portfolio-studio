@@ -1,4 +1,5 @@
 import { useDocumentOperation } from "sanity";
+import slugify from "../lib/slugify";
 
 export const CustomPublishAction = (originalPublishAction) => {
   const SetAndPublishAction = (props) => {
@@ -17,7 +18,7 @@ export const CustomPublishAction = (originalPublishAction) => {
               set: {
                 slug: {
                   _type: "slug",
-                  current: draft.title?.replace(/\s+/g, "-").toLowerCase(),
+                  current: slugify(draft.title),
                 },
               },
             },
