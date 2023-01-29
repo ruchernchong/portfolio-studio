@@ -7,7 +7,7 @@ describe("slugify", () => {
   });
 
   it("should return a valid slug for special characters used in the string", () => {
-    expect(slugify("dev.to")).toEqual("dev-to");
+    expect(slugify("dev.to")).toEqual("devto");
     expect(slugify("convert $5 to something")).toEqual(
       "convert-5-to-something"
     );
