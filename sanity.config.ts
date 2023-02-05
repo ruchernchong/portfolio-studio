@@ -9,7 +9,7 @@ export default defineConfig({
   name: "default",
   title: "Portfolio Studio",
   projectId: "sg29f8lf",
-  dataset: "production",
+  dataset: import.meta.env.SANITY_STUDIO_DATASET || "production",
   plugins: [deskTool(), markdownSchema({ input: CustomMarkdownInput })],
   document: {
     actions: (prev) =>
