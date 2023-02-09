@@ -41,6 +41,13 @@ export default {
       title: "Date",
       type: "datetime",
     },
+    {
+      name: "featured",
+      title: "Featured Post",
+      description: "Set if the post should be a featured post",
+      type: "boolean",
+      initialValue: false,
+    },
   ],
   orderings: [
     {
