@@ -8,7 +8,7 @@ import CustomMarkdownInput from "./components/CustomMarkdownInput";
 export default defineConfig({
   name: "default",
   title: "Portfolio Studio",
-  projectId: "sg29f8lf",
+  projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
   dataset: import.meta.env.SANITY_STUDIO_DATASET || "production",
   plugins: [deskTool(), markdownSchema({ input: CustomMarkdownInput })],
   document: {
