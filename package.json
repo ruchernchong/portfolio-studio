@@ -20,10 +20,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.7.0",
+    "sanity": "^3.16.4",
     "sanity-plugin-markdown": "^4.0.0",
     "sanity-plugin-media": "^2.0.5",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
