@@ -1,5 +1,6 @@
 import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
+import { RobotIcon } from "@sanity/icons";
+import { structureTool } from "sanity/structure";
 import { markdownSchema } from "sanity-plugin-markdown";
 import { schemaTypes } from "./schemas";
 import { CustomPublishAction } from "./actions/SetAndPublishAction";
@@ -9,10 +10,11 @@ import { media } from "sanity-plugin-media";
 export default defineConfig({
   name: "default",
   title: "Portfolio Studio",
+  icon: RobotIcon,
   projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
   dataset: import.meta.env.SANITY_STUDIO_DATASET || "production",
   plugins: [
-    deskTool(),
+    structureTool(),
     markdownSchema({ input: CustomMarkdownInput }),
     media(),
   ],
